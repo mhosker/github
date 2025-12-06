@@ -1,0 +1,29 @@
+name: 'Terraform'
+
+on:
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - main  
+  pull_request:
+    branches: 
+      - main
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+  actions: read # This is required to read previous actions workflow runs
+
+jobs:
+  terraform:
+    uses: vincishq/github-workflow-terraform/.github/workflows/terraform-digitalocean.yml@v1
+    with:
+      use-tfplan-output: true
+    secrets:
+      TF_STATE_S3_BUCKET_NAME: ${{secrets.TF_STATE_S3_BUCKET_NAME}}
+      TF_STATE_S3_ACCESS_KEY_ID: ${{secrets.TF_STATE_S3_ACCESS_KEY_ID}}
+      TF_STATE_S3_SECRET_ACCESS_KEY: ${{secrets.TF_STATE_S3_SECRET_ACCESS_KEY}}
+
+      GH_OWNER: mhosker
+      GH_TOKEN: ${{secrets.GH_TOKEN}}

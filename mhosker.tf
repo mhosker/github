@@ -69,13 +69,12 @@ module "github" {
       description     = "Terraform management of my GitHub config."
       visibility      = "public"
       allowed_actions = []
-    #   protected_branches = {
-    #     "main" = {
-    #       pattern                    = "main"
-    #       checks                     = ["Terraform"]
-    #       require_code_owner_reviews = true
-    #     }
-    #   }
+      protected_branches = {
+        "main" = {
+          pattern                    = "main"
+          checks                     = ["Terraform"]
+        }
+      }
     }
 
     # ----------------------------------------

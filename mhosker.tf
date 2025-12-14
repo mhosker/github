@@ -52,7 +52,7 @@ module "github" {
   default_actions_verified_allowed = true
 
   # Overriding the default allowed GitHub actions patterns as this is not supported with our free GitHub org on private repos
-  default_actions_allowed_patterns = []
+  default_actions_allowed_patterns = ["vincishq/*"]
 
   # ---------------------------------------------------------
   # Repositories

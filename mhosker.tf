@@ -12,7 +12,7 @@ terraform {
       s3 = "https://lon1.digitaloceanspaces.com"
     }
 
-    key    = "github.tfstate"
+    key = "github.tfstate"
 
     # Deactivate a few AWS-specific checks
     skip_credentials_validation = true
@@ -71,8 +71,8 @@ module "github" {
       allowed_actions = []
       protected_branches = {
         "main" = {
-          pattern                    = "main"
-          checks                     = ["Terraform"]
+          pattern = "main"
+          checks  = ["Terraform"]
         }
       }
     }
@@ -87,7 +87,7 @@ module "github" {
     #   visibility      = "private"
     #   allowed_actions = []
     # }
-    
+
     "dns" = {
       name            = "dns"
       description     = "DNS config management."

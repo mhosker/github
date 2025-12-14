@@ -12,7 +12,7 @@ terraform {
       s3 = "https://lon1.digitaloceanspaces.com"
     }
 
-    key    = "github.tfstate"
+    key = "github.tfstate"
 
     # Deactivate a few AWS-specific checks
     skip_credentials_validation = true
@@ -52,7 +52,7 @@ module "github" {
   default_actions_verified_allowed = true
 
   # Overriding the default allowed GitHub actions patterns as this is not supported with our free GitHub org on private repos
-  default_actions_allowed_patterns = []
+  default_actions_allowed_patterns = ["vincishq/*"]
 
   # ---------------------------------------------------------
   # Repositories
@@ -71,8 +71,8 @@ module "github" {
       allowed_actions = []
       protected_branches = {
         "main" = {
-          pattern                    = "main"
-          checks                     = ["Terraform"]
+          pattern = "main"
+          checks  = ["Terraform"]
         }
       }
     }
@@ -87,20 +87,20 @@ module "github" {
     #   visibility      = "private"
     #   allowed_actions = []
     # }
-    
-    # "dns" = {
-    #   name            = "dns"
-    #   description     = "DNS config management."
-    #   visibility      = "private"
-    #   allowed_actions = []
-    #   # protected_branches = {
-    #   #   "prod" = {
-    #   #     pattern                    = "prod"
-    #   #     checks                     = ["OctoDNS"]
-    #   #     require_code_owner_reviews = true
-    #   #   }
-    #   # }
-    # }
+
+    "dns" = {
+      name            = "dns"
+      description     = "DNS config management."
+      visibility      = "private"
+      allowed_actions = []
+      # protected_branches = {
+      #   "prod" = {
+      #     pattern                    = "prod"
+      #     checks                     = ["OctoDNS"]
+      #     require_code_owner_reviews = true
+      #   }
+      # }
+    }
   }
 
   # ---------------------------------------------------------

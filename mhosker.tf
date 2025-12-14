@@ -88,19 +88,19 @@ module "github" {
     #   allowed_actions = []
     # }
     
-    # "dns" = {
-    #   name            = "dns"
-    #   description     = "DNS config management."
-    #   visibility      = "private"
-    #   allowed_actions = []
-    #   # protected_branches = {
-    #   #   "prod" = {
-    #   #     pattern                    = "prod"
-    #   #     checks                     = ["OctoDNS"]
-    #   #     require_code_owner_reviews = true
-    #   #   }
-    #   # }
-    # }
+    "dns" = {
+      name            = "dns"
+      description     = "DNS config management."
+      visibility      = "private"
+      allowed_actions = []
+      # protected_branches = {
+      #   "prod" = {
+      #     pattern                    = "prod"
+      #     checks                     = ["OctoDNS"]
+      #     require_code_owner_reviews = true
+      #   }
+      # }
+    }
   }
 
   # ---------------------------------------------------------

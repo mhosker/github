@@ -22,7 +22,7 @@ terraform {
     skip_s3_checksum            = true
     skip_get_ec2_platforms      = true
     use_path_style              = true
-    region                      = "eu-west-2"
+    region                      = "lon1"
   }
 }
 

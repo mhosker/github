@@ -90,7 +90,7 @@ module "github" {
 
     "dns" = {
       name            = "dns"
-      description     = "DNS config management."
+      description     = "DNS config management using OctoDNS."
       visibility      = "private"
       allowed_actions = []
       # protected_branches = {
